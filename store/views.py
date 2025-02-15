@@ -333,7 +333,7 @@ def product_detail(request, slug):
     three_star = Review.objects.filter(product=product, active=True, rating=3).count()
     two_star = Review.objects.filter(product=product, active=True, rating=2).count()
     one_star = Review.objects.filter(product=product, active=True, rating=1).count()
-
+    relatedproduct = Product.objects.none()
     for c in product.category.all():
         relatedproduct = Product.objects.filter(category=c, status="published").order_by("-id")[:5]
     
